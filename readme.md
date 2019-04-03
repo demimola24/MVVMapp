@@ -1,3 +1,13 @@
 # MVVM Sample App
-The main purpose of this app is to show MVVM sample implementation using the new Google Architectural
-components LiveData and ViewModel.
+A simple application that shows MVVM sample implementation using the  MVVM Architectural
+components 
+-LiveData 
+-ViewModel
+-Lifecycle
+
+Other Tools used:
+-Retrofit2
+-Open Weather REST API
+- DataBinding, etc
+
+![Screenshot](ScreenshotA.png)
