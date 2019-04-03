@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="weathercurrent" type="String"/>
+        <variable name="weatherplace" type="String"/>
+        <variable name="isLoading" type="boolean" />
+        <variable name="searchItemsLoaded" type="boolean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cardview_light_background"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/loading_projects"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/loading_projects"
+            android:textAlignment="center"
+            app:visibleGone="@{isLoading}"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:background="@drawable/bgn"
+            app:visibleGone="@{!isLoading}"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:alpha="0.2"
+                android:background="@color/cardview_light_background"
+                android:layout_height="match_parent"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <FrameLayout  android:layout_alignParentTop="true" android:id="@+id/lnProduct"
+                    android:layout_gravity="top"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent" android:orientation="horizontal" android:background="@drawable/left_rounded_border"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:padding="10dp"
+                        android:gravity="center"
+                        app:visibleGone="@{!searchItemsLoaded}"
+                        android:text="Populating Places...This might take a few minutes"
+                        android:layout_height="match_parent" />
+
+                    <AutoCompleteTextView
+                        app:visibleGone="@{searchItemsLoaded}"
+                        android:id="@+id/edtPlace" android:imeOptions="actionSearch"    android:layout_width="match_parent"
+                        android:layout_height="match_parent"  android:background="@android:color/transparent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:drawableLeft="@android:drawable/ic_menu_search"
+                        android:hint="Search Places"  android:textAlignment="center"
+                        android:singleLine="true" />
+                </FrameLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textSize="60sp"
+                    android:text="@{weathercurrent}"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    android:textAlignment="center"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textSize="25sp"
+                    android:text="@{weatherplace}"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    android:textAlignment="center"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textSize="15sp"
+                    android:text="Live"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="20dp"
+                    android:textAlignment="center"/>
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/project_list"
+                    android:contentDescription="@string/project_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layoutManager="LinearLayoutManager"/>
+
+            </LinearLayout>
+
+
+
+
+        </FrameLayout>
+
+
+
+    </LinearLayout>
+</layout>

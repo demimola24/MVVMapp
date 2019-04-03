@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="weather" type="com.example.test.mvvmsampleapp.service.model.InnerWeather"/>
+        <variable name="callback" type="com.example.test.mvvmsampleapp.view.callback.ProjectClickCallback"/>
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/item_horizontal_margin"
+        android:layout_marginEnd="@dimen/item_horizontal_margin"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_marginStart="@dimen/item_horizontal_margin"
+            android:layout_marginEnd="@dimen/item_horizontal_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:layout_toLeftOf="@id/clouds"
+                android:layout_height="70dp">
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:contentDescription="@string/project_name"
+                    android:textSize="30sp"
+                    android:text="@{weather.temperature.temp}"/>
+
+                <TextView
+                    android:id="@+id/timeing"
+                    android:layout_width="wrap_content"
+                    android:padding="3dp"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/project_name"
+                    android:textSize="@dimen/project_text"
+                    android:text="@{weather.date_text}"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/clouds"
+                android:gravity="center"
+                android:layout_alignParentRight="true"
+                android:layout_width="70dp"
+                android:layout_height="70dp">
+                <ImageView
+                    android:layout_width="50sp"
+                    android:src="@drawable/clouds"
+                    android:layout_height="50sp" />
+            </LinearLayout>
+
+
+
+            <!--<TextView-->
+                <!--android:id="@+id/languages"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:contentDescription="@string/project_language"-->
+                <!--android:textSize="@dimen/project_text"-->
+                <!--android:text="@{String.format(@string/languages, project.language)}"/>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/project_watchers"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:contentDescription="@string/project_watchers"-->
+                <!--android:textSize="@dimen/project_text"-->
+                <!--android:text="@{String.format(@string/watchers, project.watchers)}"/>-->
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</layout>
